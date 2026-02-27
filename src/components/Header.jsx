@@ -1,9 +1,24 @@
+import { Link } from 'react-router-dom';
+import { useAppContext } from '../App.jsx';
+
 function Header() {
-  const siteTitle = "New Bulbapedia";
+  const { state, dispatch } = useAppContext();
 
   return (
     <header className="header">
-      <h1 className="header-title">{siteTitle}</h1>
+      <Link to="/" className="logo">
+        <h1 className="header-title">🎮 Pokédex</h1>
+      </Link>
+      <nav className="nav">
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+      </nav>
+      <button 
+        className="theme-toggle"
+        onClick={() => dispatch({ type: 'TOGGLE_MODE' })}
+      >
+        {state.mode === 'light' ? '🌙 Dark' : '☀️ Light'}
+      </button>
     </header>
   );
 }

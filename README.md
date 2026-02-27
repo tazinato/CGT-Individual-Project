@@ -1,84 +1,87 @@
-# Pokédex - React Interactivity Checkpoint
+# Pokémon Pokédex Recreation
 
-## Live Demo
-[Deployed on GitHub Pages](https://yourusername.github.io/CGT-Individual-Project/)
+## Original Website Chosen
+**Pokémon.com Pokédex**  
+[https://www.pokemon.com/us/pokedex/](https://www.pokemon.com/us/pokedex/)
 
-## Checkpoint Progress ✅
+## Scope of Recreation
+Recreated core Pokédex functionality including:
+- Pokémon search and filtering by name/type
+- Individual Pokémon detail pages with stats visualization
+- Responsive card grid layout
+- Dark/light theme toggle
+- Sticky navigation header
 
-**Implemented Interactive Features:**
-- **Search by name** - Real-time filtering as user types (`useState` + `onChange`)
-- **Type filtering** - Dropdown selects Electric/Fire/Psychic types (`useState` + `onChange`) 
-- **Reset functionality** - Clears all filters instantly (`onClick` handler)
-- **Dark/Light theme toggle** - Complete page theme switching (`useState` + `onClick`)
-- **Pokemon detail pages** - Click cards to navigate (`Link` + `useParams`)
-- **Responsive card grid** - Uniform 220px cards, 3-per-row layout
+## Features Implemented
+- ✅ Search bar with live filtering
+- ✅ Type filter dropdown (All, Electric, Fire, Flying, Psychic)
+- ✅ Clickable Pokémon cards navigating to detail pages
+- ✅ Detailed stats pages with progress bars
+- ✅ Dark/light theme toggle
+- ✅ Fully responsive design (mobile, tablet, desktop)
+- ✅ Loading states and smooth transitions
+- ✅ Sticky header navigation (Home/About)
+- ✅ 404 handling redirects to home
 
-**Technical Implementation:**
-State: useState for searchTerm, selectedType, mode, pokemon data
+## Technical Implementation
 
-Events: onChange (search/filter), onClick (reset/theme), Link navigation
+**State Management**  
+- Context API + `useReducer` for global state
+- Single source of truth for Pokémon data, filters, loading, theme
+- Actions: `SET_POKEMON`, `SET_FILTERS`, `TOGGLE_MODE`, `RESET_FILTERS`
 
-Filtering: pokemon.filter().filter().sort() chain with live re-renders
+**Routing Structure**  
+/
+/pokemon/:id (25, 6, 150)
+/about
 
-Routing: React Router v6 with /pokemon/:id detail pages
-
-Theme: Inline CSS with isDark conditional styling across all components
+(redirect to home)
 
 text
+- React Router v6 with `BrowserRouter`, `Routes`, `Route`
+- `useParams()` for dynamic Pokémon routes
+- `Link` components for navigation
 
-**Why These Interactions:**
-- **Search + Filter** = Fast Pokémon lookup by name OR type (core Pokédex UX)
-- **Theme Toggle** = Accessibility + modern app polish
-- **Detail Pages** = Deep dive into individual Pokémon stats/descriptions
-- **Reset** = Quick return to full Pokédex view
+**Hooks Used**  
+- `useReducer` - Global state management
+- `useContext` - Access app state anywhere
+- `useEffect` - Load Pokémon data on mount
+- `useParams` - Extract route parameters
+- Custom `useAppContext()` hook
 
-**Live Features Working:**
-☀️/🌙 Theme toggle (full page)
-🔍 Search "Pikachu" → instant filter
-⚡ Filter "Electric" → shows Pikachu only
-🔄 Reset → shows all Pokémon
-Click Pikachu → /pokemon/25 detail page
-Responsive: 1-4 cards/row by screen size
+**Styling**  
+- CSS Grid + Flexbox for responsive layouts
+- CSS custom properties and theme classes (`.app.light`, `.app.dark`)
+- Glassmorphism effects with `backdrop-filter`
+- Hover animations and micro-interactions
+- Mobile-first responsive breakpoints
 
-## Core React Concepts Demonstrated
-- **useState** - Dynamic data (filters, theme, pokemon list)
-- **useEffect** - Data loading + detail page lookup  
-- **Event Handling** - onChange, onClick, form interactions
-- **Conditional Rendering** - Loading states, empty results, not found
-- **Component Re-rendering** - Live filter updates without page refresh
-- **Routing** - Client-side navigation with useParams/useNavigate
+## Live Site & Repository
+**Live Site**: https://tazinato.github.io/CGT-Individual-Project  
+**Repository**: https://github.com/tazinato/CGT-Individual-Project
 
-## Tech Stack
-React 18 + Vite + React Router v6
-ES6+ (arrow functions, destructuring, template literals)
-CSS Grid + Flexbox (responsive layout)
-Inline CSS themes (no external dependencies)
-
-## Setup & Run
-```bash
-npm install
-npm run dev    # http://localhost:5173
-npm run build  # Deploy-ready dist/ folder
-File Structure
-text
+## Project File Structure
 src/
+├── App.jsx (main app + context + routes)
+├── App.css (responsive styling + themes)
 ├── components/
-│   ├── Header.jsx
-│   ├── PokemonCard.jsx (dark mode + hover)
-│   ├── Section.jsx
-│   └── Introduction.jsx
-├── assets/
-│   ├── pikachu.jpg
-│   ├── charizard.jpg
-│   └── mewtwo.jpg
-└── App.jsx (all logic inline)
-Next Steps Planned
-Pokémon API Integration (pokeapi.co)
+│ ├── Header.jsx
+│ └── PokemonCard.jsx
+└── assets/
+├── pikachu.jpg
+├── charizard.jpg
+└── mewtwo.jpg
 
-Favorites system (save/load from localStorage)
+## Future Improvements
+- Integrate PokéAPI for 1000+ Pokémon
+- Add animations (Framer Motion)
+- Progressive Web App (PWA) support
+- Advanced filtering (generation, stats range)
+- Pokémon favorites/saved list
+- Type effectiveness calculator
+- Export stats as PDF
+To deploy and get your URLs:
 
-Sorting (by number, stats)
-
-Animations (card flips, theme transitions)
-
-Mobile swipe gestures
+bash
+npm install --save-dev gh-pages
+npm run deploy
