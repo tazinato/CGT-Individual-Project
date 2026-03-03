@@ -1,0 +1,29 @@
+[
+  {
+    "id": 25,
+    "name": "Pikachu",
+    "number": "#025",
+    "types": ["Electric"],
+    "image": "/CGT-Individual-Project/assets/pikachu.jpg", 
+    "stats": { "hp": 35, "attack": 55, "defense": 40, "spAttack": 50, "spDefense": 50, "speed": 90 },
+    "description": "Pikachu is a short, chubby rodent Pokémon."
+  },
+  {
+    "id": 6,
+    "name": "Charizard",
+    "number": "#006",
+    "types": ["Fire", "Flying"],
+    "image": "/CGT-Individual-Project/assets/charizard.jpg",  
+    "stats": { "hp": 78, "attack": 84, "defense": 78, "spAttack": 109, "spDefense": 85, "speed": 100 },
+    "description": "Charizard flies and breathes intense flames."
+  },
+  {
+    "id": 150,
+    "name": "Mewtwo",
+    "number": "#150",
+    "types": ["Psychic"],
+    "image": "/CGT-Individual-Project/assets/mewtwo.jpg",    
+    "stats": { "hp": 106, "attack": 110, "defense": 90, "spAttack": 154, "spDefense": 90, "speed": 130 },
+    "description": "Mewtwo was created by genetic manipulation."
+  }
+]

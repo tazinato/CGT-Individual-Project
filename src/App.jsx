@@ -12,7 +12,7 @@ import {
 import Header from "./components/Header";
 import About from "./components/About";
 import PokemonCard from "./components/PokemonCard";
-import { pokemonData } from './data/pokemonData.jsx';
+import pokemonData from './Data/pokemonData.json';
 
 const AppContext = createContext();
 
