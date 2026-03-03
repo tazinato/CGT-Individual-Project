@@ -5,7 +5,7 @@ function About() {
     <div className="about">
       <h2>About This Pokédex</h2>
       <p>
-        A recreation of Bulbapedia, with a focus on game specific information. <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page" Bulbapedia target="_blank" rel="noopener noreferrer"></a>.
+        A recreation of Bulbapedia, with a focus on game specific information. <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page"  target="_blank" rel="noopener noreferrer">Bulbapedia</a>.
       </p>
       <h3>Features</h3>
       <ul>
