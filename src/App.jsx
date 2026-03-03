@@ -1,20 +1,18 @@
 import "./App.css";
 import { useReducer, useEffect, createContext, useContext, useState } from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
   useNavigate,
   useParams,
-  Link
+  Link,
+  Navigate
 } from "react-router-dom";
 import Header from "./components/Header";
-import Introduction from "./components/Introduction";
+import About from "./components/About";
 import PokemonCard from "./components/PokemonCard";
-import Section from "./components/Section";
-import pikachuImg from "./assets/pikachu.jpg";
-import charizardImg from "./assets/charizard.jpg";
-import mewtwoImg from "./assets/mewtwo.jpg";
+import { pokemonData } from './Data/pokemonData.jsx';
 
 const AppContext = createContext();
 
@@ -49,62 +47,14 @@ function AppProvider({ children }) {
   });
 
   useEffect(() => {
-    setTimeout(() => {
-      dispatch({
-        type: 'SET_POKEMON',
-        payload: [
-          {
-            id: 25, 
-            name: "Pikachu", 
-            number: "#025", 
-            types: ["Electric"],
-            image: pikachuImg, 
-            stats: { 
-              hp: 35, 
-              attack: 55, 
-              defense: 40, 
-              spAttack: 50, 
-              spDefense: 50, 
-              speed: 90 
-            },
-            description: "Pikachu is a short, chubby rodent Pokémon."
-          },
-          {
-            id: 6, 
-            name: "Charizard", 
-            number: "#006", 
-            types: ["Fire", "Flying"],
-            image: charizardImg, 
-            stats: { 
-              hp: 78, 
-              attack: 84, 
-              defense: 78, 
-              spAttack: 109, 
-              spDefense: 85, 
-              speed: 100 
-            },
-            description: "Charizard flies and breathes intense flames."
-          },
-          {
-            id: 150, 
-            name: "Mewtwo", 
-            number: "#150", 
-            types: ["Psychic"],
-            image: mewtwoImg, 
-            stats: { 
-              hp: 106, 
-              attack: 110, 
-              defense: 90, 
-              spAttack: 154, 
-              spDefense: 90, 
-              speed: 130 
-            },
-            description: "Mewtwo was created by genetic manipulation."
-          }
-        ]
-      });
-    }, 1000);
-  }, []);
+  setTimeout(() => {
+    dispatch({
+      type: 'SET_POKEMON',
+      payload: pokemonData  
+    });
+  }, 1000);
+}, []);
+
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
@@ -234,22 +184,6 @@ function AppLayout({ children }) {
       <footer className="footer">
         <p>© 2026 Pokémon Pokédex Recreation</p>
       </footer>
-    </div>
-  );
-}
-
-function About() {
-  return (
-    <div className="about">
-      <h2>About This Pokédex</h2>
-      <p>A faithful recreation of <a href="https://www.pokemon.com/us/pokedex/" target="_blank">Pokémon.com Pokédex</a>.</p>
-      <ul>
-        <li>✅ Search and filter Pokémon by type</li>
-        <li>✅ Theme toggle (light/dark mode)</li>
-        <li>✅ Responsive design</li>
-        <li>✅ React Router navigation</li>
-        <li>✅ Context API state management</li>
-      </ul>
     </div>
   );
 }

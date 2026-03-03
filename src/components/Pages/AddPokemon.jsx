@@ -77,7 +77,6 @@ const AddPokemon = ({ onAddPokemon }) => {
         });
       }
       
-      // Reset form
       setFormData({
         name: "",
         number: "",
